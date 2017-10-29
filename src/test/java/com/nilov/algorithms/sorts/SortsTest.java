@@ -41,6 +41,15 @@ public class SortsTest {
         assertTrue("Insertion sort sorted error. result = " + print(result), check(result));
     }
 
+    @Test
+    public void reverse() throws Exception {
+        result = InsertionSort.reverse(unsorted.clone());
+        assertTrue("Insertion sort unsorted error. result = " + print(result), check(result));
+
+        System.out.println(print(unsorted.clone()));
+        System.out.println(print(result));
+    }
+
     private static boolean check(Integer[] array) {
         for (int i = 1; i < array.length; i++) {
             if (array[i - 1] > array[i])
