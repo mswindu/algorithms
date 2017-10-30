@@ -13,9 +13,6 @@ public class SortsTest {
     private static Integer[] unsorted = null;
     private static Integer[] sorted = null;
 
-    private Integer[] result = null;
-
-
     static {
         unsorted = new Integer[SIZE];
         int i = 0;
@@ -31,7 +28,7 @@ public class SortsTest {
 
     @Test
     public void sort() throws Exception {
-        result = InsertionSort.sort(unsorted.clone());
+        Integer[] result = InsertionSort.sort(unsorted.clone());
         assertTrue("Insertion sort unsorted error. result = " + print(result), check(result));
 
         //System.out.println(print(unsorted.clone()));
@@ -43,16 +40,24 @@ public class SortsTest {
 
     @Test
     public void reverse() throws Exception {
-        result = InsertionSort.reverse(unsorted.clone());
-        assertTrue("Insertion sort unsorted error. result = " + print(result), check(result));
+        Integer[] result = InsertionSort.reverse(unsorted.clone());
+        assertTrue("Insertion sort unsorted error. result = " + print(result), checkReverse(result));
 
-        System.out.println(print(unsorted.clone()));
-        System.out.println(print(result));
+        result = InsertionSort.reverse(sorted.clone());
+        assertTrue("Insertion sort sorted error. result = " + print(result), checkReverse(result));
     }
 
     private static boolean check(Integer[] array) {
         for (int i = 1; i < array.length; i++) {
             if (array[i - 1] > array[i])
+                return false;
+        }
+        return true;
+    }
+
+    private static boolean checkReverse(Integer[] array) {
+        for (int i = 1; i < array.length; i++) {
+            if (array[i - 1] < array[i])
                 return false;
         }
         return true;

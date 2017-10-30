@@ -30,7 +30,7 @@ public class InsertionSort {
             temp = arr[i];
             j = i + 1;
 
-            while (j <= length && arr[j] < temp) {
+            while (j < length && arr[j] > temp) {
                 arr[j - 1] = arr[j];
                 j++;
             }
