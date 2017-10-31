@@ -12,6 +12,7 @@ public class SortsTest {
 
     private static Integer[] unsorted = null;
     private static Integer[] sorted = null;
+    private Integer[] result = null;
 
     static {
         unsorted = new Integer[SIZE];
@@ -27,24 +28,35 @@ public class SortsTest {
     }
 
     @Test
-    public void sort() throws Exception {
-        Integer[] result = InsertionSort.sort(unsorted.clone());
+    public void testInsertionSort() throws Exception {
+        result = InsertionSort.sort(unsorted.clone());
         assertTrue("Insertion sort unsorted error. result = " + print(result), check(result));
+
+        result = InsertionSort.sort(sorted.clone());
+        assertTrue("Insertion sort sorted error. result = " + print(result), check(result));
+
+        // Reverse
+
+        result = InsertionSort.reverse(unsorted.clone());
+        assertTrue("Reverse insertion sort unsorted error. result = " + print(result), checkReverse(result));
+
+        result = InsertionSort.reverse(sorted.clone());
+        assertTrue("Reverse insertion sort sorted error. result = " + print(result), checkReverse(result));
+    }
+
+    @Test
+    public void testMergeSort() throws Exception {
+        result = MergeSort.sort(unsorted.clone());
+        assertTrue("Merge sort unsorted error. result = " + print(result), check(result));
 
         //System.out.println(print(unsorted.clone()));
         //System.out.println(print(result));
 
-        result = InsertionSort.sort(sorted.clone());
-        assertTrue("Insertion sort sorted error. result = " + print(result), check(result));
-    }
+        // Reverse
 
-    @Test
-    public void reverse() throws Exception {
-        Integer[] result = InsertionSort.reverse(unsorted.clone());
-        assertTrue("Insertion sort unsorted error. result = " + print(result), checkReverse(result));
+        //result = MergeSort.reverse(unsorted.clone());
+        //assertTrue("Reverse merge sort unsorted error. result = " + print(result), checkReverse(result));
 
-        result = InsertionSort.reverse(sorted.clone());
-        assertTrue("Insertion sort sorted error. result = " + print(result), checkReverse(result));
     }
 
     private static boolean check(Integer[] array) {
