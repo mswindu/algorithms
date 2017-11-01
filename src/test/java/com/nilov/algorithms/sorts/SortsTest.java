@@ -49,6 +49,9 @@ public class SortsTest {
         result = MergeSort.sort(unsorted.clone());
         assertTrue("Merge sort unsorted error. result = " + print(result), check(result));
 
+        result = MergeSort.sort(sorted.clone());
+        assertTrue("Merge sort sorted error. result = " + print(result), check(result));
+
         //System.out.println(print(unsorted.clone()));
         //System.out.println(print(result));
 
@@ -57,6 +60,23 @@ public class SortsTest {
         //result = MergeSort.reverse(unsorted.clone());
         //assertTrue("Reverse merge sort unsorted error. result = " + print(result), checkReverse(result));
 
+    }
+
+    @Test
+    public void testBubbleSort() throws Exception {
+        result = BubbleSort.sort(unsorted.clone());
+        assertTrue("Bubble sort unsorted error. result = " + print(result), check(result));
+
+        result = BubbleSort.sort(sorted.clone());
+        assertTrue("Bubble sort sorted error. result = " + print(result), check(result));
+
+        // Reverse
+
+        result = BubbleSort.reverse(unsorted.clone());
+        assertTrue("Reverse bubble sort unsorted error. result = " + print(result), checkReverse(result));
+
+        result = BubbleSort.reverse(sorted.clone());
+        assertTrue("Reverse bubble sort sorted error. result = " + print(result), checkReverse(result));
     }
 
     private static boolean check(Integer[] array) {
