@@ -8,7 +8,7 @@ import static org.junit.Assert.assertTrue;
 
 public class SortsTest {
     private static final Random RANDOM = new Random();
-    private static final int SIZE = 10;
+    private static final int SIZE = 10000;
 
     private static Integer[] unsorted = null;
     private static Integer[] sorted = null;
@@ -77,6 +77,15 @@ public class SortsTest {
 
         result = BubbleSort.reverse(sorted.clone());
         assertTrue("Reverse bubble sort sorted error. result = " + print(result), checkReverse(result));
+    }
+
+    @Test
+    public void testHeapSort() throws Exception {
+        result = HeapSort.sort(unsorted.clone());
+        assertTrue("Heap sort unsorted error. result = " + print(result), check(result));
+
+        result = HeapSort.sort(sorted.clone());
+        assertTrue("Heap sort sorted error. result = " + print(result), check(result));
     }
 
     private static boolean check(Integer[] array) {

@@ -9,10 +9,6 @@ public class MergeSort {
         return arr;
     }
 
-    public static Integer[] reverse(Integer[] arr) {
-        return arr;
-    }
-
     private static void mergeSort(Integer[] arr, int start, int length) {
         if (length > 2) {
             int leftLength = (int) Math.floor(length / 2);
