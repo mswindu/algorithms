@@ -88,6 +88,12 @@ public class SortsTest {
         assertTrue("Heap sort sorted error. result = " + print(result), check(result));
     }
 
+    @Test
+    public void testQuickSort() throws Exception {
+        result = QuickSort.sort(unsorted.clone());
+        assertTrue("Quick sort unsorted error. result = " + print(result), check(result));
+    }
+
     private static boolean check(Integer[] array) {
         for (int i = 1; i < array.length; i++) {
             if (array[i - 1] > array[i])

@@ -54,9 +54,9 @@ public class HeapSort {
         return (i << 1) + 1;
     }
 
-    private static void swap(Integer[] arr, int i, int j) {
-        Integer e = arr[j];
-        arr[j] = arr[i];
-        arr[i] = e;
+    private static void swap(Integer[] arr, int index1, int index2) {
+        Integer e = arr[index2];
+        arr[index2] = arr[index1];
+        arr[index1] = e;
     }
 }
