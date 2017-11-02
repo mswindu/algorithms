@@ -24,6 +24,7 @@ public class HeapSort {
         }
     }
 
+    // Метод для поддержки свойства невозрастающей пирамиды
     private static void maxHeapify(Integer[] arr, int i) {
         int largest;
         int l = left(i);
