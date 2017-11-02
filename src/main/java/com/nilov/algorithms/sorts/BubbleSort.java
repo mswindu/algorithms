@@ -13,7 +13,7 @@ public class BubbleSort {
             for (int i = 1; i < length; i++) {
                 if (arr[i - 1] > arr[i]) {
                     swapped = true;
-                    arr = swap(arr, i - 1, i);
+                    swap(arr, i - 1, i);
                 }
             }
             length--;
@@ -31,7 +31,7 @@ public class BubbleSort {
             for (int i = startElement; i > endElement; i--) {
                 if (arr[i - 1] < arr[i]) {
                     swapped = true;
-                    arr = swap(arr, i - 1, i);
+                    swap(arr, i - 1, i);
                 }
             }
             endElement++;
@@ -39,10 +39,9 @@ public class BubbleSort {
         return arr;
     }
 
-    private static Integer[] swap(Integer[] arr, int i, int j) {
+    private static void swap(Integer[] arr, int i, int j) {
         Integer e = arr[j];
         arr[j] = arr[i];
         arr[i] = e;
-        return arr;
     }
 }

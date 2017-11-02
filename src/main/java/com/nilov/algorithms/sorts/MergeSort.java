@@ -5,20 +5,21 @@ public class MergeSort {
     private MergeSort() {}
 
     public static Integer[] sort(Integer[] arr) {
-        return mergeSort(arr, 0, arr.length);
+        mergeSort(arr, 0, arr.length);
+        return arr;
     }
 
     public static Integer[] reverse(Integer[] arr) {
         return arr;
     }
 
-    private static Integer[] mergeSort(Integer[] arr, int start, int length) {
+    private static void mergeSort(Integer[] arr, int start, int length) {
         if (length > 2) {
             int leftLength = (int) Math.floor(length / 2);
             int rightLength = length - leftLength;
-            arr = mergeSort(arr, start, leftLength);
-            arr = mergeSort(arr, start + leftLength, rightLength);
-            arr = merge(arr, start, leftLength, start + leftLength, rightLength);
+            mergeSort(arr, start, leftLength);
+            mergeSort(arr, start + leftLength, rightLength);
+            merge(arr, start, leftLength, start + leftLength, rightLength);
         } else if (length == 2) {
             Integer e = arr[start + 1];
             if (arr[start + 1] < arr[start]) {
@@ -26,10 +27,9 @@ public class MergeSort {
                 arr[start] = e;
             }
         }
-        return arr;
     }
 
-    private static Integer[] merge(Integer[] arr, int leftStart, int leftLength, int rightStart, int rightLength) {
+    private static void merge(Integer[] arr, int leftStart, int leftLength, int rightStart, int rightLength) {
         Integer[] L = new Integer[leftLength];
         Integer[] R = new Integer[rightLength];
 
@@ -61,6 +61,5 @@ public class MergeSort {
                 j++;
             }
         }
-        return arr;
     }
 }
