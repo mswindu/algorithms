@@ -1,6 +1,5 @@
 package com.nilov.algorithms.sorts;
 
-
 /**
  * Алгортим работает с числами в диапазоне [0 .. k-1]
  */
