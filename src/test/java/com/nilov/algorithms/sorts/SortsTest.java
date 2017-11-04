@@ -92,6 +92,18 @@ public class SortsTest {
     public void testQuickSort() throws Exception {
         result = QuickSort.sort(unsorted.clone());
         assertTrue("Quick sort unsorted error. result = " + print(result), check(result));
+
+        result = QuickSort.sort(sorted.clone());
+        assertTrue("Quick sort sorted error. result = " + print(result), check(result));
+    }
+
+    @Test
+    public void testCountingSort() throws Exception {
+        result = CountingSort.sort(unsorted.clone());
+        assertTrue("Counting sort unsorted error. result = " + print(result), check(result));
+
+        result = CountingSort.sort(sorted.clone());
+        assertTrue("Counting sort sorted error. result = " + print(result), check(result));
     }
 
     private static boolean check(Integer[] array) {
