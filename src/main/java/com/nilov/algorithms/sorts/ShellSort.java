@@ -7,12 +7,12 @@ public class ShellSort {
     public static Integer[] sort(Integer[] arr) {
         int length = arr.length;
         int j;
-        for(int k = length / 2; k > 0; k /= 2) {
-            for(int i = k; i < length; i++) {
+        for(int gap = length / 2; gap > 0; gap /= 2) {
+            for(int i = gap; i < length; i++) {
                 Integer e = arr[i];
-                for(j = i; i >= k; j -= k) {
-                    if(e < arr[j - k])
-                        arr[j] = arr[j-k];
+                for(j = i; j >= gap; j -= gap) {
+                    if(e < arr[j - gap])
+                        arr[j] = arr[j-gap];
                     else
                         break;
                 }

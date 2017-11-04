@@ -106,6 +106,15 @@ public class SortsTest {
         assertTrue("Counting sort sorted error. result = " + print(result), check(result));
     }
 
+    @Test
+    public void testShellSort() throws Exception {
+        result = ShellSort.sort(unsorted.clone());
+        assertTrue("Shell sort unsorted error. result = " + print(result), check(result));
+
+        result = ShellSort.sort(sorted.clone());
+        assertTrue("Shell sort sorted error. result = " + print(result), check(result));
+    }
+
     private static boolean check(Integer[] array) {
         for (int i = 1; i < array.length; i++) {
             if (array[i - 1] > array[i])
