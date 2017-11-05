@@ -105,6 +105,12 @@ public class Stack<T> {
         return -1;
     }
 
+    /**
+     * @param   o   Object that we want to find
+     * @return  the 1-based position from the top of the stack where
+     *          the object is located; the return value <code>-1</code>
+     *          indicates that the object is not on the stack.
+     */
     private synchronized int lastIndexOf(Object o) {
         int index = elementCount - 1;
         if (o == null) {
