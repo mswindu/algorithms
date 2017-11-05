@@ -56,6 +56,31 @@ public class Stack<T> {
         return (T) elementData[size() - 1];
     }
 
+    /**
+     * Tests if this stack is empty.
+     *
+     * @return  <code>true</code> if and only if this stack contains
+     *          no items; <code>false</code> otherwise.
+     */
+    public boolean isEmpty() {
+        return (elementCount == 0);
+    }
+
+    /**
+     * @param   o   Object that we want to find
+     * @return  the 1-based position from the top of the stack where
+     *          the object is located; the return value <code>-1</code>
+     *          indicates that the object is not on the stack.
+     */
+    public int search(Object o) {
+        int i = lastIndexOf(o);
+
+        if (i >= 0) {
+            return size() - i;
+        }
+        return -1;
+    }
+
     private void addElement(T obj) {
 
         if(elementCount + 1 - elementData.length > 0) {
@@ -82,35 +107,10 @@ public class Stack<T> {
                 MAX_ARRAY_SIZE;
     }
 
-    /**
-     * Tests if this stack is empty.
-     *
-     * @return  <code>true</code> if and only if this stack contains
-     *          no items; <code>false</code> otherwise.
-     */
-    public boolean isEmpty() {
-        return (elementCount == 0);
-    }
-
     private int size() {
         return elementCount;
     }
 
-    public int search(Object o) {
-        int i = lastIndexOf(o);
-
-        if (i >= 0) {
-            return size() - i;
-        }
-        return -1;
-    }
-
-    /**
-     * @param   o   Object that we want to find
-     * @return  the 1-based position from the top of the stack where
-     *          the object is located; the return value <code>-1</code>
-     *          indicates that the object is not on the stack.
-     */
     private synchronized int lastIndexOf(Object o) {
         int index = elementCount - 1;
         if (o == null) {
