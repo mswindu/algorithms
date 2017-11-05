@@ -1,4 +1,4 @@
-package com.nilov.algorithms.data_structures;
+package com.nilov.algorithms.structures;
 
 import java.util.Arrays;
 import java.util.EmptyStackException;
