@@ -3,51 +3,65 @@ package com.nilov.algorithms.structures;
 import java.util.Arrays;
 import java.util.EmptyStackException;
 
-public class Stack {
-
-    private int[] elementData;
+public class Stack<T> {
+    private Object[] elementData;
     private int elementCount;
-    private static int defaultInitialCapacity = 10;
 
     private static final int MAX_ARRAY_SIZE = Integer.MAX_VALUE - 8;
 
+    /**
+     * Create empty Stack.
+     */
     public Stack() {
-        this(defaultInitialCapacity);
+        this.elementData = new Object[10];
+        this.elementCount = 0;
     }
 
-    public Stack(int initialCapacity) {
-        elementData = new int[initialCapacity];
-        elementCount = 0;
+    /**
+     * Pushed an item into the top of this Stack.
+     *
+     * @param item the item to be pushed into this stack.
+     * @return the <code>item</code> argument
+     */
+    public T push(T item) {
+        addElement(item);
+
+        return item;
     }
 
-    public void push(int value) {
-        addElement(value);
-    }
-
-    public int pop() {
+    /**
+     * Removes the object at the top of this stack and returns that
+     * object as the value of this function.
+     *
+     * @return The object at the top of this stack
+     * @throws EmptyStackException if this stack is empty.
+     */
+    public T pop() {
         if(isEmpty())
             throw new EmptyStackException();
-        int element = peek();
+        T item = peek();
         elementCount--;
-        return element;
+        return item;
     }
 
-    public int peek() {
+    /**
+     * Returns at the object at the top of this stack without removing it
+     *
+     * @return The object at the top of this stack
+     * @throws EmptyStackException if this stack is empty.
+     */
+    public T peek() {
         if(isEmpty())
             throw new EmptyStackException();
-        return elementData[size() - 1];
+        return (T) elementData[size() - 1];
     }
 
-    public boolean isEmpty() {
-        return (elementCount == 0);
-    }
-
-    private void addElement(int value) {
+    private void addElement(T obj) {
 
         if(elementCount + 1 - elementData.length > 0) {
             grow(elementCount + 1);
         }
-        elementData[elementCount++] = value;
+        elementData[elementCount++] = obj;
     }
 
     private void grow(int minCapacity) {
@@ -68,27 +82,40 @@ public class Stack {
                 MAX_ARRAY_SIZE;
     }
 
+    /**
+     * Tests if this stack is empty.
+     *
+     * @return  <code>true</code> if and only if this stack contains
+     *          no items; <code>false</code> otherwise.
+     */
+    public boolean isEmpty() {
+        return (elementCount == 0);
+    }
+
     private int size() {
         return elementCount;
     }
 
-    public String toString() {
-        StringBuilder builder = new StringBuilder();
+    public int search(Object o) {
+        int i = lastIndexOf(o);
 
-        if(isEmpty()) {
-            return "[]";
+        if (i >= 0) {
+            return size() - i;
         }
+        return -1;
+    }
 
-        builder.append('[');
-        for (int i = 0; i < elementCount; i++) {
-            int e = elementData[i];
-            if (i == elementCount - 1) {
-                builder.append(e);
-                continue;
-            }
-            builder.append(e).append(',').append(' ');
+    private synchronized int lastIndexOf(Object o) {
+        int index = elementCount - 1;
+        if (o == null) {
+            for (int i = index; i >= 0; i--)
+                if (elementData[i]==null)
+                    return i;
+        } else {
+            for (int i = index; i >= 0; i--)
+                if (o.equals(elementData[i]))
+                    return i;
         }
-        builder.append(']');
-        return builder.toString();
+        return -1;
     }
 }

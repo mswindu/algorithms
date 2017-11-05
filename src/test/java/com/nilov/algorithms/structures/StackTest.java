@@ -18,10 +18,10 @@ public class StackTest {
     private static final Random RANDOM = new Random();
     private static final int SIZE = 10000;
 
-    private static int[] data = null;
+    private static Integer[] data = null;
 
     static {
-        data = new int[SIZE];
+        data = new Integer[SIZE];
         int i = 0;
         while (i < data.length) {
             data[i++] = RANDOM.nextInt(data.length * 10);
@@ -45,7 +45,7 @@ public class StackTest {
     @Test
     public void testPushAndPop() throws Exception {
         Stack stack = new Stack();
-        int element;
+        Object element;
         for (int aData : data) stack.push(aData);
 
         assertTrue(!stack.isEmpty());
