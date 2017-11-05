@@ -31,20 +31,20 @@ public class StackTest {
     @Test
     public void testPopEmptyStackException() throws Exception {
         thrown.expect(EmptyStackException.class);
-        Stack stack = new Stack();
+        Stack<Integer> stack = new Stack<>();
         stack.pop();
     }
 
     @Test
     public void testPeekEmptyStackException() throws Exception {
         thrown.expect(EmptyStackException.class);
-        Stack stack = new Stack();
+        Stack<Integer> stack = new Stack<>();
         stack.peek();
     }
 
     @Test
     public void testPushAndPop() throws Exception {
-        Stack stack = new Stack();
+        Stack<Integer> stack = new Stack();
         Object element;
         for (int aData : data) stack.push(aData);
 
@@ -62,5 +62,45 @@ public class StackTest {
         element = stack.pop();
 
         assertTrue(stack.isEmpty());
+    }
+
+    @Test
+    public void testSearchExistsElement() throws Exception{
+        Stack<Integer> stack = new Stack<>();
+        Integer currentObject = null;
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        stack.push(4);
+        stack.push(5);
+        stack.push(1);
+
+        Object searchObject = new Integer(5);
+
+        int length = stack.search(searchObject);
+
+        for(int i = 0; i < length; i++) {
+            currentObject = stack.pop();
+        }
+
+        assertEquals(searchObject, currentObject);
+    }
+
+    @Test
+    public void testSearchNotExistsElement() throws Exception{
+        Stack<Integer> stack = new Stack<>();
+        Integer currentObject = null;
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        stack.push(4);
+        stack.push(5);
+        stack.push(1);
+
+        Object searchObject = new Integer(50);
+
+        int length = stack.search(searchObject);
+
+        assertEquals(length, -1);
     }
 }
