@@ -7,7 +7,7 @@ public class CountingSort {
 
     private CountingSort() {}
 
-    public static Integer[] sort(Integer[] arr) {
+    public static int[] sort(int[] arr) {
         int maxValue = findMaxValue(arr);
         int[] counts = new int[maxValue + 1];
 
@@ -19,7 +19,7 @@ public class CountingSort {
         return arr;
     }
 
-    private static int findMaxValue(Integer[] arr) {
+    private static int findMaxValue(int[] arr) {
         int max = Integer.MIN_VALUE;
         for(int i: arr) {
             if(i > max) {
@@ -29,7 +29,7 @@ public class CountingSort {
         return max;
     }
 
-    private static void populateCounts(Integer[] unsorted, int[] counts) {
+    private static void populateCounts(int[] unsorted, int[] counts) {
         int index = 0;
         for (int i = 0; i < counts.length; i++) {
             int e = counts[i];

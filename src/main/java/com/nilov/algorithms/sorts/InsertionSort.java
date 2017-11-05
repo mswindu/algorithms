@@ -4,7 +4,7 @@ public class InsertionSort {
 
     private InsertionSort() { }
 
-    public static Integer[] sort(Integer[] arr) {
+    public static int[] sort(int[] arr) {
         int length = arr.length;
         int temp, j;
 
@@ -22,7 +22,7 @@ public class InsertionSort {
         return arr;
     }
 
-    public static Integer[] reverse(Integer[] arr) {
+    public static int[] reverse(int[] arr) {
         int length = arr.length;
         int temp, j;
 

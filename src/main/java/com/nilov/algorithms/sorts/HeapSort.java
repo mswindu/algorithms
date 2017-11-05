@@ -6,7 +6,7 @@ public class HeapSort {
 
     private HeapSort() {}
 
-    public static Integer[] sort(Integer[] arr) {
+    public static int[] sort(int[] arr) {
         buildMaxHeap(arr);
         while (heapSize > 1) {
             swap(arr, 0, heapSize - 1);
@@ -16,7 +16,7 @@ public class HeapSort {
         return arr;
     }
 
-    private static void buildMaxHeap(Integer[] arr) {
+    private static void buildMaxHeap(int[] arr) {
         heapSize = arr.length;
 
         for(int i = heapSize / 2; i >= 0; i--) {
@@ -25,7 +25,7 @@ public class HeapSort {
     }
 
     // Метод для поддержки свойства невозрастающей пирамиды
-    private static void maxHeapify(Integer[] arr, int i) {
+    private static void maxHeapify(int[] arr, int i) {
         int largest;
         int l = left(i);
         int r = right(i);
@@ -54,8 +54,8 @@ public class HeapSort {
         return (i << 1) + 1;
     }
 
-    private static void swap(Integer[] arr, int index1, int index2) {
-        Integer e = arr[index2];
+    private static void swap(int[] arr, int index1, int index2) {
+        int e = arr[index2];
         arr[index2] = arr[index1];
         arr[index1] = e;
     }

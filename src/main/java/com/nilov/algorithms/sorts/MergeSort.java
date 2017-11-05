@@ -4,12 +4,12 @@ public class MergeSort {
 
     private MergeSort() {}
 
-    public static Integer[] sort(Integer[] arr) {
+    public static int[] sort(int[] arr) {
         mergeSort(arr, 0, arr.length);
         return arr;
     }
 
-    private static void mergeSort(Integer[] arr, int start, int length) {
+    private static void mergeSort(int[] arr, int start, int length) {
         if (length > 2) {
             int leftLength = (int) Math.floor(length / 2);
             int rightLength = length - leftLength;
@@ -17,7 +17,7 @@ public class MergeSort {
             mergeSort(arr, start + leftLength, rightLength);
             merge(arr, start, leftLength, start + leftLength, rightLength);
         } else if (length == 2) {
-            Integer e = arr[start + 1];
+            int e = arr[start + 1];
             if (arr[start + 1] < arr[start]) {
                 arr[start + 1] = arr[start];
                 arr[start] = e;
@@ -25,9 +25,9 @@ public class MergeSort {
         }
     }
 
-    private static void merge(Integer[] arr, int leftStart, int leftLength, int rightStart, int rightLength) {
-        Integer[] L = new Integer[leftLength];
-        Integer[] R = new Integer[rightLength];
+    private static void merge(int[] arr, int leftStart, int leftLength, int rightStart, int rightLength) {
+        int[] L = new int[leftLength];
+        int[] R = new int[rightLength];
 
         System.arraycopy(arr, leftStart, L, 0, leftLength);
         System.arraycopy(arr, rightStart, R, 0, rightLength);

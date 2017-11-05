@@ -4,7 +4,7 @@ public class BubbleSort {
 
     private BubbleSort() {}
 
-    public static Integer[] sort(Integer[] arr) {
+    public static int[] sort(int[] arr) {
         int length = arr.length;
         boolean swapped = true;
 
@@ -21,7 +21,7 @@ public class BubbleSort {
         return arr;
     }
 
-    public static Integer[] reverse(Integer[] arr) {
+    public static int[] reverse(int[] arr) {
         int startElement = arr.length - 1;
         int endElement = 0;
         boolean swapped = true;
@@ -39,8 +39,8 @@ public class BubbleSort {
         return arr;
     }
 
-    private static void swap(Integer[] arr, int i, int j) {
-        Integer e = arr[j];
+    private static void swap(int[] arr, int i, int j) {
+        int e = arr[j];
         arr[j] = arr[i];
         arr[i] = e;
     }
