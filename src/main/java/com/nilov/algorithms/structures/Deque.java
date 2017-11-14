@@ -17,7 +17,6 @@ public class Deque<T> {
         head = (head - 1) & (elementData.length - 1);
         elementData[head] = item;
 
-        System.out.println("addFirst: " + head);
         if (head == tail)
             doubleCapacity();
     }
@@ -28,7 +27,7 @@ public class Deque<T> {
 
         elementData[tail] = item;
         tail = (tail + 1) & (elementData.length - 1);
-        System.out.println("addLast: " + tail);
+
         if (head == tail)
             doubleCapacity();
     }
@@ -74,6 +73,15 @@ public class Deque<T> {
     }
 
     /**
+     * Returns {@code true} if this deque contains no elements.
+     *
+     * @return {@code true} if this deque contains no elements
+     */
+    public boolean isEmpty() {
+        return head == tail;
+    }
+
+    /**
      * Когда хвост и голова встречаются:
      * Хвост всегда слева
      * Голова всегда справа
@@ -96,6 +104,5 @@ public class Deque<T> {
 
         head = 0;
         tail = elementDataLength;
-        System.out.println("new capacity: " + newCapacity);
     }
 }
