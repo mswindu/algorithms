@@ -6,7 +6,7 @@ This is a collection of algorithms and data structures that I implement for acad
 - [Sorts](#sorts)
 ## Data Structures
 * [Stack](src/main/java/com/nilov/algorithms/structures/Stack.java)
-* [Deque](src/main/java/com/nilov/algorithms/structures/Deque.java)
+* [Deque](src/main/java/com/nilov/algorithms/structures/Deque.java) [Implemented with an array]
 ## Sorts
 * [Bubble Sort](src/main/java/com/nilov/algorithms/sorts/BubbleSort.java)
 * [Counting Sort](src/main/java/com/nilov/algorithms/sorts/CountingSort.java)
